@@ -1,0 +1,32 @@
+2025-11-17 10:51:28,469 - INFO - Initializing Embedding model: model='Qwen/Qwen3-Embedding-8B', url='http://127.0.0.1:9804/v1'
+2025-11-17 10:51:30,674 - INFO - HTTP Request: POST http://127.0.0.1:9804/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-17 10:51:30,679 - INFO - Embedding model connected successfully
+2025-11-17 10:51:30,679 - INFO - Connecting to Milvus at http://127.0.0.1:19530
+2025-11-17 10:51:30,706 - INFO - Milvus vector store connection established.
+2025-11-17 10:51:30,713 - INFO - Initializing LLM: model='Qwen/Qwen3-30B-A3B-Thinking-2507-FP8', url='http://127.0.0.1:9805/v1'
+2025-11-17 10:51:32,594 - INFO - HTTP Request: POST http://127.0.0.1:9805/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:51:32,607 - INFO - LLM connected successfully
+2025-11-17 10:51:32,623 - INFO - Initializing hallucination checker LLM: model='Qwen/Qwen3-30B-A3B-Thinking-2507-FP8', url='http://127.0.0.1:9805/v1'
+2025-11-17 10:51:32,624 - INFO - Hallucination checker LLM initialized successfully
+2025-11-17 10:51:32,627 - INFO - Initializing query rewriter LLM: model='Qwen/Qwen3-30B-A3B-Thinking-2507-FP8', url='http://127.0.0.1:9805/v1'
+2025-11-17 10:51:32,627 - INFO - Query rewriter LLM initialized successfully
+2025-11-17 10:51:32,627 - INFO - Initializing RAG workflow graph
+2025-11-17 10:51:32,627 - INFO - Adding nodes
+2025-11-17 10:51:32,628 - INFO - Defining workflow edges
+2025-11-17 10:51:32,631 - INFO - RAG workflow compiled successfully.
+2025-11-17 10:51:32,633 - INFO - Retrieving documents for question: '튀니지정부와 수행한 사업에 대해 알려줘'
+2025-11-17 10:51:33,796 - INFO - HTTP Request: POST http://127.0.0.1:9804/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-17 10:51:33,864 - INFO - Retrieved 20 documents from vector store.
+2025-11-17 10:51:33,865 - INFO - Calling Rerank API: url=http://127.0.0.1:9806/rerank, n_docs=20
+2025-11-17 10:51:34,538 - INFO - HTTP Request: POST http://127.0.0.1:9806/rerank "HTTP/1.1 200 OK"
+2025-11-17 10:51:34,539 - INFO - Reranked 20 docs. Selected 5 after filters. Top-5 scores: [0.785, 0.7581, 0.7518, 0.692, 0.5582]
+2025-11-17 10:51:34,541 - INFO - Generating answer for question: '튀니지정부와 수행한 사업에 대해 알려줘' (docs=5)
+2025-11-17 10:51:42,555 - INFO - HTTP Request: POST http://127.0.0.1:9805/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:51:42,557 - INFO - Generation complete in 8.02s
+2025-11-17 10:51:42,558 - INFO - Running hallucination check for question: '튀니지정부와 수행한 사업에 대해 알려줘' (docs=5)
+2025-11-17 10:51:58,818 - INFO - HTTP Request: POST http://127.0.0.1:9805/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:51:58,835 - INFO - Hallucination grade result: yes
+2025-11-17 10:51:58,835 - INFO - Generation is grounded in documents. Running relevance check against question.
+2025-11-17 10:52:02,814 - INFO - HTTP Request: POST http://127.0.0.1:9805/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:52:02,824 - INFO - Answer relevance grade result: yes
+2025-11-17 10:52:02,824 - INFO - Generation is relevant: it addresses the user question.

@@ -1,0 +1,18 @@
+[project]
+name = "file-management-system-with-llm"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "gdown>=5.2.0",
+    "ipykernel>=7.0.1",
+    "langchain>=1.0.2",
+    "langchain-community>=0.4.1",
+    "langchain-milvus>=0.2.2",
+    "langchain-openai>=1.0.1",
+    "langgraph>=1.0.1",
+    "pyhwp>=0.1b15",
+    "pymupdf>=1.26.6",
+    "python-dotenv>=1.2.1",
+]
