@@ -5,16 +5,3 @@ uv pip install -qU langchain-docling
 uv add langchain-milvus
 uv add langchain-openai
 uv add langgraph
-
-mkdir data
-gdown --fuzzy 'https://drive.google.com/file/d/1SCz3RwPXC7Vhje_PWNI82O_saSYXpLyz/view?usp=drive_link' -O ./data/
-
-
-
-
-
-
-
-
-gdown --folder 'https://drive.google.com/drive/folders/1r5NoUNxgnbkpXfX_92j33JI1B9TyJRpg?usp=drive_link' -O ./data/
-for f in data/*.zip; do folder="${f%.zip}"; unzip -o "$f" -d "$folder" && rm "$f"; done
