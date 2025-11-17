@@ -1,7 +1,7 @@
 [project]
-name = "file-management-system-with-llm"
+name = "qa-rag"
 version = "0.1.0"
-description = "Add your description here"
+description = "랭그래프를 이용해 RAG 파이프라인을 구성하는 레포지토리입니다."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
